@@ -7,6 +7,17 @@
     flex-wrap: wrap;
 }
 
+.wrapper-cards input {
+    margin: 1em;
+    padding: 0.3em;
+    font-size: 16px;
+    border: none;
+    background-color: #aaa;
+    color: #000;
+    outline: none;
+    border-radius: 3px;
+}
+
 .cards>div {
     padding: 0.4em;
     display: flex;
@@ -54,6 +65,7 @@
     font-size: 13px;
     background-color: #284258d2;
     color: #d3d3d3;
+    cursor: pointer;
     border-radius: 2px;
 }
 

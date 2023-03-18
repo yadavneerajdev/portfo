@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div className="App">
-
       <FormComponent effect={(e) => setEffect(e)} />
       <DisplayData effect={effect} />
     </div>
