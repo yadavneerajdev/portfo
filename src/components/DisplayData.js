@@ -11,6 +11,7 @@ const DisplayData = ({ effect, setEffect }) => {
         axios.get('http://localhost:5000/api/data')
             .then(response => {
                 setData(response.data);
+                console.log(response.data)
             })
             .catch(error => {
                 console.error(error);
@@ -19,11 +20,26 @@ const DisplayData = ({ effect, setEffect }) => {
 
 
     const makeArchived = (id, value) => {
-        // alert(id + " - " + value);
-
         axios.put(`http://localhost:5000/api/update`, { id: id, archive: (value ? '1' : '0') });
         setEffect(e => { return parseInt(e + 1) })
 
+    }
+
+    const removeItem = (e) => {
+        console.log(e)
+        axios.delete('http://localhost:5000/api/delete', {
+            data: {
+                id: e // Replace with the actual ID of the student you want to delete
+            }
+        })
+            .then(response => {
+                console.log(response.data); // Logs the success message from the server
+                setEffect(e => { return parseInt(e + 1) })
+
+            })
+            .catch(error => {
+                console.error(error); // Logs any errors that occur during the request
+            });
     }
 
     return (<div className='wrapper-cards' style={{ textAlign: "center" }}>
@@ -45,6 +61,8 @@ const DisplayData = ({ effect, setEffect }) => {
                         <p className='labels-dis'>{elem.labels.split(" ").map((e, index) => {
                             return <span onClick={(e) => setFilter(e.target.innerText)} key={index}> {e}</span>
                         })}</p>
+                        <button className='remove' onClick={(e) => removeItem(elem.id)}>Remove From List</button>
+
                     </div>
                 })
                 }
@@ -68,6 +86,7 @@ const DisplayData = ({ effect, setEffect }) => {
                             <p className='labels-dis'>{elem.labels.split(" ").map((e, index) => {
                                 return <span onClick={(e) => setFilter(e.target.innerText)} key={index}> {e}</span>
                             })}</p>
+                            <button className='remove' onClick={(e) => removeItem(elem.id)}>Remove From List</button>
                         </div>
                     })}
             </div>

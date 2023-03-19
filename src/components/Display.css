@@ -18,6 +18,14 @@
     border-radius: 3px;
 }
 
+.cards>div>div>button.remove {
+    background-color: #fff;
+    border: none;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .cards>div>div {
     min-width: 250px;
     padding: 0.4em;
