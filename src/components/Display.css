@@ -18,7 +18,8 @@
     border-radius: 3px;
 }
 
-.cards>div {
+.cards>div>div {
+    min-width: 250px;
     padding: 0.4em;
     display: flex;
     flex-direction: column;
@@ -72,4 +73,15 @@
 
 .tag {
     font-size: 12px;
+}
+
+.cards>div>div {
+    position: relative;
+}
+
+.cards div div label {
+    position: absolute;
+    top: 0.2em;
+    right: 0.2em;
+    cursor: pointer;
 }

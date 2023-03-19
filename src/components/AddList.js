@@ -11,7 +11,8 @@ const FormComponent = ({ effect }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         let str = lable.join(' ');
-        axios.post('http://localhost:5000/api/post', { title, lbody, str })
+        let archived = '0';
+        axios.post('http://localhost:5000/api/post', { title, lbody, str, archived })
             .then(response => console.log(response))
             .catch(error => console.log(error));
         effect(e => { return parseInt(e + 1) })

@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <FormComponent effect={(e) => setEffect(e)} />
-      <DisplayData effect={effect} />
+      <DisplayData effect={effect} setEffect={(e) => setEffect(e)} />
     </div>
   );
 }
